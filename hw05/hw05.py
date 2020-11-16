@@ -36,9 +36,9 @@ class IpHandler:
         return [self._get_single_oct_3(ip) for ip in self.ipList]
 
     def _reverse_single_ip(self, ip):
-        reversed_ip = ip.split(".")
-        reversed_ip.reverse()
-        return ".".join(reversed_ip)
+        reversed_list = ip.split(".")
+        reversed_list.reverse()
+        return ".".join(reversed_list)
 
     def _get_single_oct_1_3(self, ip):
         return "." + ".".join(ip.split(".")[1:])
