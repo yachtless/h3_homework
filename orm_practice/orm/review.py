@@ -1,4 +1,6 @@
 import uuid
+from logger import logger
+
 
 class Review:
     def __init__(self, header, text, mark, author, status='Moderation'):

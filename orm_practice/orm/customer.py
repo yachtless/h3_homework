@@ -1,8 +1,8 @@
 import uuid
-
 from user import User
 from order import Order
 from review import Review
+from logger import logger
 
 
 class Customer(User):
@@ -23,11 +23,13 @@ class Customer(User):
     def create_order(self, item, amount):
         new_order = Order(self, item, amount)
         self.orders.append(new_order)
+        logger.info(f"Created new order: {new_order}")
         return new_order
 
     def create_review(self, header, text, mark):
         review = Review(header, text, mark, self)
         self.reviews.append(review)
+        logger.info(f"Created new review: {review}")
         return review
 
 
@@ -39,10 +41,10 @@ if __name__ == '__main__':
     i1 = Item("Banana", "Better than ever before", 799.0,
               ("Golden", "Fresh Green"))
     c1.create_order(i1, 3)
-    print(c1)
-    print(c1.orders)
+    logger.debug(c1)
+    logger.debug(c1.orders)
 
     r1 = c1.create_review('Some header', 'Some good stuff', 5)
     r2 = c1.create_review("Another header", "Some bad stuff", 1)
-    print(r1)
-    print(r2)
+    logger.debug(r1)
+    logger.debug(r2)

@@ -1,4 +1,5 @@
 import uuid
+from logger import logger
 
 
 class Supply:

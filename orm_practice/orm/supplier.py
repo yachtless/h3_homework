@@ -1,5 +1,5 @@
 import uuid
-
+from logger import logger
 from user import User
 from item import Item
 from supply import Supply
@@ -19,7 +19,7 @@ class Supplier(User):
         return f"Supplier {self.id}: {self.company_name}, {self.contact_name}"
 
     def add_item(self, title, description, price, colors=tuple()):
-        new_item = Item(title, description, price, color)
+        new_item = Item(title, description, price, colors)
         self.supplied_items.append(new_item)
         return new_item
 
@@ -32,4 +32,4 @@ class Supplier(User):
 if __name__ == '__main__':
     s1 = Supplier("isupply", "4real", "Crab Shack Company", "Van Crabs",
                 "000-112-35-8", "crab@shack.biz")
-    print(s1)
+    logger.debug(s1)

@@ -1,4 +1,6 @@
 import uuid
+from logger import logger
+
 
 class User:
 
